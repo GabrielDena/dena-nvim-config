@@ -9,9 +9,9 @@ return {
         vim.keymap.set('n', '<leader>dT', ':call vimspector#ClearBreakpoints()')
         vim.keymap.set('n', '<leader>dn', ':call vimspector#JumpToNextBreakpoint()')
 
-        vim.keymap.set('n', '<leader>dh', ':call vimspector#StepOut()')
-        vim.keymap.set('n', '<leader>dj', ':call vimspector#StepInto()')
-        vim.keymap.set('n', '<leader>dk', ':call vimspector#Restart')
-        vim.keymap.set('n', '<leader>dl', ':call vimspector#StepOver()')
+        vim.keymap.set('n', '<leader>dh', '<Plug>VimspectorStepOut')
+        vim.keymap.set('n', '<leader>dj', '<Plug>VimspectorStepInto')
+        vim.keymap.set('n', '<leader>dk', '<Plug>VimspectorRestart')
+        vim.keymap.set('n', '<leader>dl', '<Plug>VimspectorStepOver')
     end
 }
