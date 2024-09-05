@@ -47,3 +47,12 @@ vim.keymap.set("c", "Qw", "qw")
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+vim.keymap.set("n", "<leader>t", function()
+    vim.cmd('split')
+    vim.cmd('wincmd j')
+    vim.cmd('terminal')
+    vim.cmd('resize -10')
+    vim.cmd('wincmd k')
+end)
+
