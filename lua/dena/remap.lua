@@ -48,6 +48,7 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
+-- Open terminal
 vim.keymap.set("n", "<leader>t", function()
     vim.cmd('split')
     vim.cmd('wincmd j')
@@ -56,3 +57,15 @@ vim.keymap.set("n", "<leader>t", function()
     vim.cmd('wincmd k')
 end)
 
+-- Change windows
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+
+
+-- Resize windows
+vim.keymap.set("n", "=", [[<cmd>vertical resize +5<cr>]]) -- make the window biger vertically
+vim.keymap.set("n", "-", [[<cmd>vertical resize -5<cr>]]) -- make the window smaller vertically
+vim.keymap.set("n", "+", [[<cmd>horizontal resize +5<cr>]]) -- make the window bigger horizontally by pressing shift and =
+vim.keymap.set("n", "_", [[<cmd>horizontal resize -10<cr>]]) -- make the window smaller horizontally by pressing shift and -

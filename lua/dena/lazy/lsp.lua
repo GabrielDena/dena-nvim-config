@@ -34,7 +34,8 @@ return {
                     'tsserver', 
                     'lua_ls', 
                     'terraformls', 
-                    'vimls' 
+                    'vimls',
+                    'spectral'
             },
             handlers = {
                 function(server_name) -- default handler (optional)
