@@ -33,7 +33,6 @@ return {
                     'elixirls',
                     --'tsserver',
                     'ts_ls',
-                    'prettier',
                     'lua_ls',
                     'terraformls',
                     'vimls',
