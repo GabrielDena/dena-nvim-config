@@ -25,15 +25,15 @@ return {
         require('fidget').setup({})
         require('mason').setup()
         require('mason-lspconfig').setup({
-            ensure_installed = { 
-                    'angularls', 
-                    'dockerls', 
-                    'docker_compose_language_service', 
-                    'eslint', 
-                    'elixirls', 
-                    'tsserver', 
-                    'lua_ls', 
-                    'terraformls', 
+            ensure_installed = {
+                    'angularls',
+                    'dockerls',
+                    'docker_compose_language_service',
+                    'eslint',
+                    'elixirls',
+                    'tsserver',
+                    'lua_ls',
+                    'terraformls',
                     'vimls',
                     'spectral'
             },
