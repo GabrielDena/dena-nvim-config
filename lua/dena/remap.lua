@@ -54,7 +54,6 @@ vim.keymap.set("n", "<leader>t", function()
     vim.cmd('wincmd j')
     vim.cmd('terminal')
     vim.cmd('resize -10')
-    vim.cmd('wincmd k')
 end)
 
 -- Change windows
