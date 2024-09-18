@@ -38,8 +38,6 @@ return {
                 'dockerls',
                 'docker_compose_language_service',
                 'eslint',
-                'elixirls',
-                --'tsserver',
                 'ts_ls',
                 'lua_ls',
                 'terraformls',
@@ -82,7 +80,7 @@ return {
                         }
                     }
                 end,
-                ['jsonls'] = function()
+                ['spectral'] = function()
                     local lspconfig = require('lspconfig')
                     lspconfig.jsonls.setup {
                         filetypes = { 'json', 'jsonc' },
