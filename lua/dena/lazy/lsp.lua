@@ -135,9 +135,12 @@ return {
                 end,
                 ['ts_ls'] = function()
                     local lspconfig = require('lspconfig')
+                    local tsCapabilites = capabilities
+                    tsCapabilites.textDocument.formatting = false
+                    tsCapabilites.textDocument.rangeFormatting = false
                     lspconfig.ts_ls.setup {
                         on_attach = on_attach,
-                        capabilities = capabilities,
+                        capabilities = tsCapabilities,
                         commands = {
                             OrganizeImports = {
                                 organize_imports,
