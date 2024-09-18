@@ -5,10 +5,16 @@ return {
         'nvim-lua/plenary.nvim',
         'BurntSushi/ripgrep'
     },
-    config = function ()
+    config = function()
         local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
-        vim.keymap.set('n', '<leader>ps', function ()
+        local find_files = function()
+            builtin.find_files {
+                find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' },
+                previewer = false
+            }
+        end
+        vim.keymap.set('n', '<leader>pf', find_files, {})
+        vim.keymap.set('n', '<leader>ps', function()
             builtin.grep_string({ search = vim.fn.input("Grep > ") });
         end)
         vim.keymap.set('n', '<C-p>', builtin.git_files, {})
