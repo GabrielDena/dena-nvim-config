@@ -21,22 +21,30 @@ return {
             {},
             vim.lsp.protocol.make_client_capabilities(),
             cmp_lsp.default_capabilities())
+        local function organize_imports()
+            local params = {
+                command = "_typescript.organizeImports",
+                arguments = { vim.api.nvim_buf_get_name(0) },
+                title = ""
+            }
+            vim.lsp.buf.execute_command(params)
+        end
 
         require('fidget').setup({})
         require('mason').setup()
         require('mason-lspconfig').setup({
             ensure_installed = {
-                    'angularls',
-                    'dockerls',
-                    'docker_compose_language_service',
-                    'eslint',
-                    'elixirls',
-                    --'tsserver',
-                    'ts_ls',
-                    'lua_ls',
-                    'terraformls',
-                    'vimls',
-                    'spectral'
+                'angularls',
+                'dockerls',
+                'docker_compose_language_service',
+                'eslint',
+                'elixirls',
+                --'tsserver',
+                'ts_ls',
+                'lua_ls',
+                'terraformls',
+                'vimls',
+                'spectral'
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -59,7 +67,6 @@ return {
                     })
                     vim.g.zig_fmt_parse_errors = 0
                     vim.g.zig_fmt_autosave = 0
-
                 end,
                 ['lua_ls'] = function()
                     local lspconfig = require('lspconfig')
@@ -75,20 +82,20 @@ return {
                         }
                     }
                 end,
-                ['jsonls'] = function ()
-                    local lspconfig = require('lspcocnfig')
+                ['jsonls'] = function()
+                    local lspconfig = require('lspconfig')
                     lspconfig.jsonls.setup {
-                        filetypes = {'json', 'jsonc'},
+                        filetypes = { 'json', 'jsonc' },
                         settings = {
                             json = {
                                 -- Schemas https://www.schemastore.org
                                 schemas = {
                                     {
-                                        fileMatch = {'package.json'},
+                                        fileMatch = { 'package.json' },
                                         url = 'https://json.schemastore.org/package.json'
                                     },
                                     {
-                                        fileMatch = {'tsconfig*.json'},
+                                        fileMatch = { 'tsconfig*.json' },
                                         url = 'https://json.schemastore.org/tsconfig.json'
                                     },
                                     {
@@ -100,19 +107,19 @@ return {
                                         url = 'https://json.schemastore.org/prettierrc.json'
                                     },
                                     {
-                                        fileMatch = {'.eslintrc', '.eslintrc.json'},
+                                        fileMatch = { '.eslintrc', '.eslintrc.json' },
                                         url = 'https://json.schemastore.org/eslintrc.json'
                                     },
                                     {
-                                        fileMatch = {'.babelrc', '.babelrc.json', 'babel.config.json'},
+                                        fileMatch = { '.babelrc', '.babelrc.json', 'babel.config.json' },
                                         url = 'https://json.schemastore.org/babelrc.json'
                                     },
                                     {
-                                        fileMatch = {'lerna.json'},
+                                        fileMatch = { 'lerna.json' },
                                         url = 'https://json.schemastore.org/lerna.json'
                                     },
                                     {
-                                        fileMatch = {'now.json', 'vercel.json'},
+                                        fileMatch = { 'now.json', 'vercel.json' },
                                         url = 'https://json.schemastore.org/now.json'
                                     },
                                     {
@@ -124,6 +131,19 @@ return {
                                         url = 'http://json.schemastore.org/stylelintrc.json'
                                     }
                                 }
+                            }
+                        }
+                    }
+                end,
+                ['ts_ls'] = function()
+                    local lspconfig = require('lspconfig')
+                    lspconfig.ts_ls.setup {
+                        on_attach = on_attach,
+                        capabilities = capabilities,
+                        commands = {
+                            OrganizeImports = {
+                                organize_imports,
+                                description = "Organize Imports"
                             }
                         }
                     }
