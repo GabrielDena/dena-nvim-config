@@ -7,6 +7,6 @@ return {
   },
   config = function()
     require('nvim-tree').setup {}
-    vim.keymap.set('n', '<leader>F', vim.cmd.NvimTreeFindFile')
+    vim.keymap.set('n', '<leader>F', vim.cmd.NvimTreeFindFile)
   end,
 }
