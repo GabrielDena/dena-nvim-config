@@ -40,10 +40,6 @@ vim.keymap.set(
     "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 )
 
-vim.keymap.set("c", "Q", "q")
-vim.keymap.set("c", "W", "w")
-vim.keymap.set("c", "Qw", "qw")
-
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
