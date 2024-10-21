@@ -22,6 +22,7 @@ return {
                         "txt",
                     },
                     only_local = "node_modules/.bin",
+                    extra_args = { "--print-width", "120" }
                 }),
                 null_ls.builtins.formatting.stylua.with({
                     filetypes = {
