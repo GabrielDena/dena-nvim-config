@@ -53,6 +53,10 @@ return {
           end
         end
       end,
+
+      vim.api.nvim_create_user_command("Format", function()
+        vim.lsp.buf.format({ async = true })
+      end, { desc = "Format the current buffer using null-ls" })
     })
   end
 }
