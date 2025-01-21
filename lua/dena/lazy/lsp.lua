@@ -212,5 +212,7 @@ return {
         prefix = '',
       },
     })
-  end
+  end;
+
+  vim.keymap.set('n', '<C-g>', vim.lsp.buf.definition, { noremap = true, silent = true})
 }
