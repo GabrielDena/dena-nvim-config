@@ -215,4 +215,11 @@ return {
   end;
 
   vim.keymap.set('n', '<C-g>', vim.lsp.buf.definition, { noremap = true, silent = true})
+
+  vim.keymap.set('n', '<leader>i', function()
+        local params = {
+            context = { only = { 'source.addMissingImports' } },
+        }
+        vim.lsp.buf.code_action(params)
+    end, { noremap = true, silent = true, desc = 'Add missing imports' }),
 }
