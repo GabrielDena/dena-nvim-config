@@ -150,22 +150,6 @@ return {
                         }
                     }
                 end,
-                ['tsserver'] = function()
-                    local lspconfig = require('lspconfig')
-                    local tsCapabilities = capabilities
-                    tsCapabilities.textDocument.formatting = false
-                    tsCapabilities.textDocument.rangeFormatting = false
-                    lspconfig.ts_ls.setup {
-                        on_attach = on_attach,
-                        capabilities = tsCapabilities,
-                        commands = {
-                            OrganizeImports = {
-                                organize_imports,
-                                description = "Organize Imports"
-                            }
-                        }
-                    }
-                end,
                 ['terraformls'] = function()
                     local lspconfig = require('lspconfig')
                     lspconfig.terraformls.setup {}
