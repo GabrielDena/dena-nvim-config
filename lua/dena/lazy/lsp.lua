@@ -39,7 +39,7 @@ return {
                 'docker_compose_language_service',
                 'eslint',
                 'ts_ls',    --Darwin
-                'tsserver', --Linux
+                -- 'tsserver', --Linux
                 'lua_ls',
                 'terraformls',
                 'vimls',
